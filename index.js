@@ -35,5 +35,15 @@ enterButton?.addEventListener('click', () => {
 const cancelButton = document.getElementById('cancel-button');
 console.log('cancelButton: ', cancelButton);
 cancelButton?.addEventListener('click', () => {
+    const actionsSection = document.getElementById('actions-section');
+    console.log('actionsSection: ', actionsSection);
+    actionsSection?.classList.add('hidden');
 
+    const systemMessage = document.getElementById('system-message');
+    console.log('systemMessage: ', systemMessage);
+    systemMessage?.classList.add('hidden');
+
+    const pinSection = document.getElementById('pin-section');
+    console.log('pinSection: ', pinSection);
+    pinSection?.classList.remove('hidden');
 })
