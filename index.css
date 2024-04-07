@@ -101,3 +101,11 @@ body {
     text-align: center;
     color: #FE4D97;
 }
+
+#actions-section {
+    display: none;
+}
+
+#system-message {
+    display: none;
+}
