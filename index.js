@@ -24,6 +24,12 @@ enterButton?.addEventListener('click', () => {
             const pinSection = document.getElementById('pin-section');
             console.log('pinSection: ', pinSection);
             pinSection?.classList.add('hidden');
+
+            const subtitle = document.getElementById('subtitle');
+            console.log('subtitle: ', subtitle);
+            if (subtitle) {
+                subtitle.textContent = 'AVAILABLE OPERATIONS';
+            }
         } else {
             alert('Incorrect PIN entered!');
         }
@@ -46,4 +52,10 @@ cancelButton?.addEventListener('click', () => {
     const pinSection = document.getElementById('pin-section');
     console.log('pinSection: ', pinSection);
     pinSection?.classList.remove('hidden');
+
+    const subtitle = document.getElementById('subtitle');
+    console.log('subtitle: ', subtitle);
+    if (subtitle) {
+        subtitle.textContent = 'PLEASE AUTHENTICATE';
+    }
 })
