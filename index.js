@@ -1,4 +1,5 @@
 const CORRECT_PIN = '1234';
+let balance = 50;
 
 const enterButton = document.getElementById('enter-button');
 console.log('enterButton: ', enterButton);
@@ -57,5 +58,65 @@ cancelButton?.addEventListener('click', () => {
     console.log('subtitle: ', subtitle);
     if (subtitle) {
         subtitle.textContent = 'PLEASE AUTHENTICATE';
+    }
+})
+
+const balanceButton = document.getElementById('balance-button');
+console.log('balanceButton: ', balanceButton);
+balanceButton?.addEventListener('click', () => {
+    const systemMessage = document.getElementById('system-message');
+    console.log('systemMessage: ', systemMessage);
+    if (systemMessage) {
+        systemMessage.textContent = `AVAILABLE BALANCE: ${balance} EUR`
+        systemMessage.classList.remove('info');
+        systemMessage.classList.remove('error');
+        systemMessage.classList.add('success');
+    }
+})
+
+const depositButton = document.getElementById('deposit-button');
+console.log('depositButton: ', depositButton);
+depositButton?.addEventListener('click', () => {
+    const amount = prompt('Please enter the amount you want to deposit:');
+    console.log('amount: ', amount);
+
+    balance = balance + parseFloat(amount || '');
+
+    const systemMessage = document.getElementById('system-message');
+    console.log('systemMessage: ', systemMessage);
+    if (systemMessage) {
+        systemMessage.textContent = `${amount} EUR Deposited. Available balance: ${balance} EUR`
+        systemMessage.classList.remove('info');
+        systemMessage.classList.remove('error');
+        systemMessage.classList.add('success');
+    }
+})
+
+const withdrawButton = document.getElementById('withdraw-button');
+console.log('withdrawButton: ', withdrawButton);
+withdrawButton?.addEventListener('click', () => {
+    const amount = prompt('Please enter the amount you want to deposit:');
+    console.log('amount: ', amount);
+
+    if (balance >= parseFloat(amount || '')) {
+        balance = balance - parseFloat(amount || '');
+
+        const systemMessage = document.getElementById('system-message');
+        console.log('systemMessage: ', systemMessage);
+        if (systemMessage) {
+            systemMessage.textContent = `${amount} EUR Withdrawn. Available balance: ${balance} EUR`
+            systemMessage.classList.remove('info');
+            systemMessage.classList.remove('error');
+            systemMessage.classList.add('success');
+        }
+    } else {
+        const systemMessage = document.getElementById('system-message');
+        console.log('systemMessage: ', systemMessage);
+        if (systemMessage) {
+            systemMessage.textContent = 'Insufficient funds!'
+            systemMessage.classList.remove('info');
+            systemMessage.classList.add('error');
+            systemMessage.classList.remove('success');
+        }
     }
 })
