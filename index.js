@@ -13,11 +13,27 @@ enterButton?.addEventListener('click', () => {
         console.log('pin: ', pin);
 
         if (pin === CORRECT_PIN) {
-            console.log('Correct PIN entered!');
+            const actionsSection = document.getElementById('actions-section');
+            console.log('actionsSection: ', actionsSection);
+            actionsSection?.classList.remove('hidden');
+
+            const systemMessage = document.getElementById('system-message');
+            console.log('systemMessage: ', systemMessage);
+            systemMessage?.classList.remove('hidden');
+
+            const pinSection = document.getElementById('pin-section');
+            console.log('pinSection: ', pinSection);
+            pinSection?.classList.add('hidden');
         } else {
             alert('Incorrect PIN entered!');
         }
     } else {
         console.error('input is not an HTMLInputElement');
     }
+})
+
+const cancelButton = document.getElementById('cancel-button');
+console.log('cancelButton: ', cancelButton);
+cancelButton?.addEventListener('click', () => {
+
 })

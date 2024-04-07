@@ -102,10 +102,6 @@ body {
     color: #FE4D97;
 }
 
-#actions-section {
-    display: none;
-}
-
-#system-message {
+.hidden {
     display: none;
 }
